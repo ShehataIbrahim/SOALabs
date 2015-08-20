@@ -1,0 +1,28 @@
+<?binding.jca crudUser_db.jca?>
+<wsdl:definitions name="crudUser" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/Lab1/Registration/crudUser" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/Lab1/Registration/crudUser" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/crudUser">
+    <plt:partnerLinkType name="crudUser_plt">
+        <plt:role name="crudUser_role">
+            <plt:portType name="tns:crudUser_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/crudUser" schemaLocation="xsd/crudUser_table.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="UsersCollection_msg">
+        <wsdl:part name="UsersCollection" element="top:UsersCollection"/>
+    </wsdl:message>
+    <wsdl:message name="crudUserSelect_inputParameters">
+        <wsdl:part name="crudUserSelect_inputParameters" element="top:crudUserSelect_userNameInputParameters"/>
+    </wsdl:message>
+    <wsdl:portType name="crudUser_ptt">
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:UsersCollection_msg"/>
+        </wsdl:operation>
+        <wsdl:operation name="crudUserSelect">
+            <wsdl:input message="tns:crudUserSelect_inputParameters"/>
+            <wsdl:output message="tns:UsersCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
