@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:ih="http://www.ihorizons.com/soa"
+            targetNamespace="http://www.ihorizons.com/soa"
+            elementFormDefault="qualified">
+  <xsd:element name="User" type="ih:UserType"></xsd:element>
+  <xsd:element name="Response" type="xsd:string"/>
+  <xsd:element name="Error" type="xsd:string"/>
+  <xsd:complexType name="UserType">
+    <xsd:sequence>
+      <xsd:element name="userName" type="ih:String35" minOccurs="1"
+                   maxOccurs="1"/>
+      <xsd:element name="firstName" type="ih:String64" minOccurs="0"
+                   maxOccurs="1"/>
+      <xsd:element name="lastName" type="ih:String64" minOccurs="0"
+                   maxOccurs="1"/>
+      <xsd:element name="gender" type="ih:genderType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="password" type="ih:String35" minOccurs="1"
+                   maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="String35">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String64">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="64"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="genderType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="Male"/>
+    <xsd:enumeration value="Female"/>
+  </xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>
