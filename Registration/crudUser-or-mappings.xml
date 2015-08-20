@@ -40,41 +40,21 @@
             </attribute-mapping>
             <attribute-mapping xsi:type="direct-mapping">
                <attribute-name>firstName</attribute-name>
-               <properties>
-                  <property name="enabled">
-                     <value>false</value>
-                  </property>
-               </properties>
                <field table="USERS" name="FIRST_NAME" xsi:type="column"/>
                <attribute-classification>java.lang.String</attribute-classification>
             </attribute-mapping>
             <attribute-mapping xsi:type="direct-mapping">
                <attribute-name>lastName</attribute-name>
-               <properties>
-                  <property name="enabled">
-                     <value>false</value>
-                  </property>
-               </properties>
                <field table="USERS" name="LAST_NAME" xsi:type="column"/>
                <attribute-classification>java.lang.String</attribute-classification>
             </attribute-mapping>
             <attribute-mapping xsi:type="direct-mapping">
                <attribute-name>gender</attribute-name>
-               <properties>
-                  <property name="enabled">
-                     <value>false</value>
-                  </property>
-               </properties>
                <field table="USERS" name="GENDER" xsi:type="column"/>
                <attribute-classification>java.lang.String</attribute-classification>
             </attribute-mapping>
             <attribute-mapping xsi:type="direct-mapping">
                <attribute-name>password</attribute-name>
-               <properties>
-                  <property name="enabled">
-                     <value>false</value>
-                  </property>
-               </properties>
                <field table="USERS" name="PASSWORD" xsi:type="column"/>
                <attribute-classification>java.lang.String</attribute-classification>
             </attribute-mapping>

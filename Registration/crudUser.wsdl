@@ -13,16 +13,9 @@
     <wsdl:message name="UsersCollection_msg">
         <wsdl:part name="UsersCollection" element="top:UsersCollection"/>
     </wsdl:message>
-    <wsdl:message name="crudUserSelect_inputParameters">
-        <wsdl:part name="crudUserSelect_inputParameters" element="top:crudUserSelect_userNameInputParameters"/>
-    </wsdl:message>
     <wsdl:portType name="crudUser_ptt">
         <wsdl:operation name="insert">
             <wsdl:input message="tns:UsersCollection_msg"/>
-        </wsdl:operation>
-        <wsdl:operation name="crudUserSelect">
-            <wsdl:input message="tns:crudUserSelect_inputParameters"/>
-            <wsdl:output message="tns:UsersCollection_msg"/>
         </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

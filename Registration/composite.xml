@@ -12,7 +12,19 @@
            xmlns:ui="http://xmlns.oracle.com/soa/designer/">
   <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Lab1/Registration/crudUser"
           location="crudUser.wsdl" importType="wsdl"/>
+  <import namespace="http://oracle.com/sca/soapservice/Lab1/Registration/registerUser"
+          location="registerUser.wsdl" importType="wsdl"/>
+  <service name="registerUser" ui:wsdlLocation="registerUser.wsdl">
+    <interface.wsdl interface="http://oracle.com/sca/soapservice/Lab1/Registration/registerUser#wsdl.interface(execute_ptt)"/>
+    <binding.ws port="http://oracle.com/sca/soapservice/Lab1/Registration/registerUser#wsdl.endpoint(registerUser/execute_pt)">
+      <property name="weblogic.wsee.wsat.transaction.flowOption"
+                type="xs:string" many="false">NEVER</property>
+    </binding.ws>
+  </service>
   <property name="productVersion" type="xs:string" many="false">11.1.1.7.8</property>
+  <component name="RequestRouter">
+    <implementation.mediator src="RequestRouter.mplan"/>
+  </component>
   <reference name="crudUser" ui:wsdlLocation="crudUser.wsdl">
     <interface.wsdl interface="http://xmlns.oracle.com/pcbpel/adapter/db/Lab1/Registration/crudUser#wsdl.interface(crudUser_ptt)"/>
     <binding.jca config="crudUser_db.jca"/>
@@ -24,4 +36,12 @@
     <property name="jca.retry.maxInterval" type="xs:string" many="false"
               override="may">120</property>
   </reference>
+  <wire>
+    <source.uri>registerUser</source.uri>
+    <target.uri>RequestRouter/RequestRouter</target.uri>
+  </wire>
+  <wire>
+    <source.uri>RequestRouter/crudUser</source.uri>
+    <target.uri>crudUser</target.uri>
+  </wire>
 </composite>
